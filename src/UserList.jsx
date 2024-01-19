@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 
 export default function UserList() {
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState([]);
   async function getData() {
     const { data } = await getAllUsers();
 
@@ -16,11 +16,11 @@ export default function UserList() {
   return (
     <div>
       <div className="users">
-        {users &&
+        {
           users.map((user) => {
             return (
-              <Link to={`/users/${user.id}`}>
-                <div className="userCard" key={user.id}>
+              <Link  key={user.id} to={`/users/${user.id}`}>
+                <div className="userCard">
                   <h3 className="title">{user.firstName}</h3>
                   <img src={user.image} alt="" />
                 </div>
