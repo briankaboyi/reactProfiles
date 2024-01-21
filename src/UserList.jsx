@@ -5,9 +5,9 @@ import Card from "./Card";
 
 export default function UserList() {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+
   async function getData() {
-    setLoading(true);
+
 
     const { data } = await getAllUsers();
 
@@ -15,15 +15,13 @@ export default function UserList() {
   }
 
   useEffect(() => {
-    console.log("loading");
+
 
     getData();
-    setLoading(false);
+   
   }, []);
 
-  if (loading) {
-    return <p>loading.........</p>;
-  }
+
 
   return (
     <div>
